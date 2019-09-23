@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Work;
+use App\Country;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -14,7 +15,9 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::all()->pluck('name', 'id');
+
+        return view('works',compact('countries'));
     }
 
     /**
